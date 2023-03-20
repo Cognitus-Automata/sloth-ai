@@ -1,2 +1,5 @@
 # Venv
 video-control/video_control
+
+
+video-control/*/__pycache__
