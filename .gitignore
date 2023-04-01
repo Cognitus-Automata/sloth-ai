@@ -1,5 +1,7 @@
 # Venv
 video-control/video_control
+mouse-control/venv-mouse
 
 
-video-control/*/__pycache__
+*/*/__pycache__
+__pycache__
