@@ -7,8 +7,7 @@ from cvzone.HandTrackingModule import HandDetector
 from Detector import track_hands
 from pynput.mouse import Button, Controller
 
-print("GT DEN DOULEUEIS RE RIMADI")
-
+# Create an instance of mouse Controller
 mouse = Controller()
 
 cap = cv2.VideoCapture(0)
@@ -66,19 +65,14 @@ with mp_hands.Hands(static_image_mode = False,
                 mouse.position = (round(xWrist*1920,1),round(yWrist*1080,1))
 
                 print(round(xIndex*1920,1),round(yThumb*1080,1))
-                # Index = np.array(xIndex, yIndex)
-                # Thumb = np.array(xThumb, yThumb)
-                # dist = np.linalg.norm(Index - Thumb)
 
                 dx, dy = xIndex - xThumb , yIndex - yThumb
                 dx3, dy3 = xMiddle - xThumb, yMiddle - yThumb
 
                 dist = np.sqrt(np.sum((dx** 2 , dy** 2)))  
-                # print(Middle)
                 # dist3 = np.sqrt(np.sum(math.pow(Middle,2)  , Thumb** 2))
                 dist3 = np.sqrt(np.sum((dx3** 2 , dy3** 2)))  
-                # dist3 = 1
-                # print(dist)
+
                 if dist <= 0.02:
                     isClicked = True
                     mouse.press(Button.left)
